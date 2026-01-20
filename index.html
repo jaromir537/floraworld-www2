@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>FloraWorld – WotLK</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- WOW FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================
+   GLOBAL
+   ========================= */
+body {
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    color: #c89b3c;
+    background: #020617;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(2,6,23,0.85);
+    border-bottom: 1px solid #c89b3c;
+}
+
+header img {
+    height: 60px;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #e6c97a;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #7dd3fc;
+}
+
+/* =========================
+   HERO
+   ========================= */
+.hero {
+    min-height: 100vh;
+    padding-top: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(rgba(2,6,23,0.75), rgba(2,6,23,0.9)),
+        url("https://raw.githubusercontent.com/jaromir537/floraworld-assets/main/lichking-bg.jpg")
+        center top / 110% no-repeat;
+
+    animation: bgMove 5s ease-in-out infinite alternate;
+}
+
+@keyframes bgMove {
+    0% {
+        background-position: center top;
+        background-size: 110%;
+    }
+    100% {
+        background-position: center 25%;
+        background-size: 115%;
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================
+   TEXT
+   ========================= */
+.hero h1 {
+    font-size: 64px;
+    color: #e6c97a;
+    text-shadow:
+        0 0 15px rgba(120,160,255,0.6),
+        0 0 30px rgba(120,160,255,0.4);
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+/* =========================
+   BUTTONS
+   ========================= */
+.buttons a {
+    display: inline-block;
+    margin: 10px;
+    padding: 16px 36px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #e6c97a;
+    border: 1px solid #c89b3c;
+    background: linear-gradient(180deg, #1f2937, #020617);
+    box-shadow: 0 0 15px rgba(200,155,60,0.35);
+    transition: all 0.25s ease;
+}
+
+.buttons a:hover {
+    background: linear-gradient(180deg, #c89b3c, #8f6b22);
+    color: #020617;
+}
+
+.buttons a.legendary {
+    border-color: #7dd3fc;
+    color: #7dd3fc;
+    box-shadow: 0 0 25px rgba(125,211,252,0.7);
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: rgba(2,6,23,0.9);
+    color: #6b7280;
+}
+
+.hero-logo {
+    max-width: 420px;
+    width: 80%;
+    margin-bottom: 30px;
+
+    filter: drop-shadow(0 0 25px rgba(120,160,255,0.6));
+    animation: logoFloat 6s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   FADE IN ANIMATIONS
+   ========================= */
+.fade-hero {
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.fade-logo {
+    opacity: 0;
+    animation: fadeUp 1.8s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.fade-text {
+    opacity: 0;
+    animation: fadeUp 1.5s ease forwards;
+    animation-delay: 0.9s;
+}
+
+.fade-buttons {
+    opacity: 0;
+    animation: fadeUp 1.5s ease forwards;
+    animation-delay: 1.3s;
+}
+
+/* =========================
+   KEYFRAMES
+   ========================= */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="https://raw.githubusercontent.com/jaromir537/floraworld-assets/main/logo.png" alt="FloraWorld">
+    <nav>
+        <a href="#">Domů</a>
+        <a href="#">Jak hrát</a>
+        <a href="#">Registrace</a>
+        <a href="#">VIP</a>
+    </nav>
+</header>
+
+<section class="hero">
+
+
+
+<div class="hero-content fade-hero">
+    <img class="hero-logo fade-logo"
+         src="https://raw.githubusercontent.com/jaromir537/floraworld-assets/main/logo.png"
+         alt="FloraWorld">
+
+    <p class="fade-text">
+        World of Warcraft – Wrath of the Lich King 3.3.5a<br>
+        Free Fun Server • x10 Rates
+    </p>
+
+    <div class="buttons fade-buttons">
+        <a href="#">Registrace</a>
+        <a href="#">Jak hrát</a>
+        <a href="#" class="legendary">VIP Shop</a>
+    </div>
+</div>
+
+</section>
+
+<footer>
+    © 2026 FloraWorld • WotLK Private Server
+</footer>
+
+<!-- =========================
+     AUDIO
+     ========================= -->
+<audio id="introSound" loop>
+  <source src="https://raw.githubusercontent.com/jaromir537/floraworld-assets/main/intro.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function startSound() {
+    const audio = document.getElementById("introSound");
+    if (audio && audio.paused) {
+        audio.volume = 0.3;
+        audio.play();
+    }
+
+    document.removeEventListener("click", startSound);
+    document.removeEventListener("keydown", startSound);
+    document.removeEventListener("touchstart", startSound);
+}
+
+document.addEventListener("click", startSound);
+document.addEventListener("keydown", startSound);
+document.addEventListener("touchstart", startSound);
+</script>
+
+
+</body>
+</html>
