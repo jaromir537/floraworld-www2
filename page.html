@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>FloraWorld – Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    background: #020617;
+    color: #c89b3c;
+}
+
+/* ================= HEADER ================= */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(2,6,23,0.85);
+    border-bottom: 1px solid #c89b3c;
+}
+
+header img {
+    height: 50px;
+}
+
+nav a {
+    margin-left: 24px;
+    text-decoration: none;
+    color: #e6c97a;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #7dd3fc;
+}
+
+/* ================= HERO / BACKGROUND ================= */
+.hero {
+    min-height: 100vh;
+    padding-top: 140px;
+    background:
+        linear-gradient(rgba(2,6,23,0.75), rgba(2,6,23,0.9)),
+        url("https://raw.githubusercontent.com/jaromir537/floraworld-assets/main/lichking-bg.jpg")
+        center top / 110% no-repeat;
+
+    animation: bgMove 20s ease-in-out infinite alternate;
+}
+
+@keyframes bgMove {
+    0% {
+        background-position: center top;
+        background-size: 110%;
+    }
+    100% {
+        background-position: center 25%;
+        background-size: 115%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="https://raw.githubusercontent.com/jaromir537/floraworld-assets/main/logo.png" alt="FloraWorld">
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="register.html">Registrace</a>
+        <a href="howto.html">Jak hrát</a>
+        <a href="login.html">Přihlásit se</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <!-- ZÁMĚRNĚ PRÁZDNÉ -->
+</section>
+
+<!-- AUDIO -->
+<audio id="introSound" loop>
+    <source src="https://raw.githubusercontent.com/jaromir537/floraworld-assets/main/intro.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function startSound() {
+    const audio = document.getElementById("introSound");
+    if (audio && audio.paused) {
+        audio.volume = 0.3;
+        audio.play();
+    }
+    document.removeEventListener("click", startSound);
+    document.removeEventListener("keydown", startSound);
+    document.removeEventListener("touchstart", startSound);
+}
+document.addEventListener("click", startSound);
+document.addEventListener("keydown", startSound);
+document.addEventListener("touchstart", startSound);
+</script>
+
+</body>
+</html>
